@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Daily Diary</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h1>My Daily Diary</h1>
+                </div>
+                
+                <nav class="nav">
+                    <button class="nav-btn active" data-view="diary">
+                        <i class="fas fa-pen"></i>
+                        Write
+                    </button>
+                    <button class="nav-btn" data-view="calendar">
+                        <i class="fas fa-calendar"></i>
+                        Calendar
+                    </button>
+                    <button class="nav-btn" data-view="search">
+                        <i class="fas fa-search"></i>
+                        Search
+                    </button>
+                    <button class="nav-btn" id="exportBtn">
+                        <i class="fas fa-download"></i>
+                        Export
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main">
+            <!-- Diary View -->
+            <div id="diaryView" class="view active">
+                <div class="diary-layout">
+                    <!-- Sidebar -->
+                    <div class="sidebar">
+                        <div class="date-navigation">
+                            <div class="date-header">
+                                <button id="prevDay" class="date-nav-btn">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <h2 id="currentDateDisplay"></h2>
+                                <button id="nextDay" class="date-nav-btn">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                            <input type="date" id="datePicker" class="date-picker">
+                        </div>
+                        
+                        <div class="recent-entries">
+                            <h3>Recent Entries</h3>
+                            <div id="recentEntriesList" class="entries-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- Main Content -->
+                    <div class="main-content">
+                        <div id="entryDisplay" class="entry-display"></div>
+                        <div id="entryEditor" class="entry-editor hidden"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar View -->
+            <div id="calendarView" class="view">
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <h2 id="calendarMonth"></h2>
+                        <div class="calendar-nav">
+                            <button id="prevMonth" class="calendar-nav-btn">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button id="nextMonth" class="calendar-nav-btn">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="calendarGrid" class="calendar-grid"></div>
+                    <div class="calendar-legend">
+                        <div class="legend-item">
+                            <div class="legend-color today"></div>
+                            <span>Today</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color has-entry"></div>
+                            <span>Has Entry</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search View -->
+            <div id="searchView" class="view">
+                <div class="search-container">
+                    <div class="search-header">
+                        <div class="search-input-container">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" id="searchInput" placeholder="Search your diary entries..." class="search-input">
+                        </div>
+                    </div>
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
